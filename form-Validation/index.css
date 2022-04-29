@@ -1,0 +1,12 @@
+
+.regForm{
+    width: 70%;
+    margin: 12% auto;
+    border: 2px solid black;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+form{
+    background-color:whitesmoke;
+}
