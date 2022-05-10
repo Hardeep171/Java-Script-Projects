@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    
+    <div class="instructions">
+        <p>
+        <h3>Instructions for password:</h3>
+        </p>
+        <ul>
+            <li>
+                <p>Password field should not be empty.</p>
+            </li>
+            <li>
+                <p>Password length should be more than 5 characters and less than 20 characters.</p>
+            </li>
+            <li>
+                <p>Password should contain one special symbol and one digit at least.</p>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <p>First create the password and save it after that You can Authenticate your password(password match or password not match) </p>
+    </div>
+    <div class="container wh">
+        <div class="pass">
+            <h4 style="display: inline-block;">Create Password: </h4><input type="text" id="pass">
+        </div>
+        <div class="valid" id="rightPass">
+            Looks good!
+        </div>
+        <div class="invalid" id="wrongPass">
+            Please Enter The Valid Password.
+        </div>
+        <div id="notSaved" class="invalid">
+            Password not saved!
+        </div>
+        <div id="saved" class="valid">
+            Password saved!
+        </div>
+    </div>
+
+    <div class="btn">
+        <button onclick="savePass()">Save</button>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="pass2">
+            <h4 style="display: inline-block;">Enter Password: </h4><input type="text" id="password">
+        </div>
+        <div id="notMatch" class="invalid">
+            Wrong Password !
+        </div>
+        <div id="match" class="valid">
+            Password match !
+        </div>
+    </div>
+    <div class="btn">
+        <button onclick="submitPass()">Login</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
