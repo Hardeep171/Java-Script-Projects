@@ -34,6 +34,7 @@ function savePass() {
     if (pass.length < 20 &&pass.length >5  && (pass.includes("@") || pass.includes("#")) && isChar(pass) && isDigit(pass)){
         encodedStr = encode(pass)
        // console.log("pass = "+pass+"encodedPass = "+encodedStr)
+    
         document.getElementById("rightPass").style.display = 'block';
          document.getElementById("wrongPass").style.display = 'none';
          document.getElementById("notSaved").style.display = 'none';
