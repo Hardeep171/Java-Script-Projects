@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    <div class="container">
+        <!-- ----------------------------------------------------------------------------------------------------------- -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand  activee" href="#home-page" onclick="changeActiveNavlink('HOME')">User Management</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link  active" href="#home-page" onclick="changeActiveNavlink('HOME')"
+                            id="home-nav-link">Home</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link atag " href="#sign" onclick="changeActiveNavlink('SIGN_UP')"
+                            id="signup-nav-link">Sign Up</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link atag" href='#log' onclick="changeActiveNavlink('LOGIN')"
+                            id="login-nav-link">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- ----------------------------------------------------------------------------------------------------------- -->
+    <div class="container">
+        <div class="jumbotron" id="home-page">
+            <h1 class="display-4">Welcome to User Management App</h1>
+            <p class="lead">This is a simple form to check user's cradentials. You can use signup form to register to
+                our website and logIn to check user's registration.</p>
+            <hr class="my-4">
+            <p>It uses utility classes to improve user experince and well defined conditions to check user password
+                strength.</p>
+            <a class="btn btn-dark btn-lg" href="#instructions" onclick='inst()' role="button">Password instructions</a>
+        </div>
+    </div>
+    <!-- ----------------------------------------------------------------------------------------------------------- -->
+    <div class="container">
+        <div class="jumbotron" id="instructions">
+            <h1 class="display-4">Instructions for password:</h1>
+            <ul>
+                <li>
+                    <p>Password field should not be empty.</p>
+                </li>
+                <li>
+                    <p>Password length should be more than 5 characters and less than 20 characters.</p>
+                </li>
+                <li>
+                    <p>Password should contain one special symbol('@' || '#') and one digit('0-9') at least.</p>
+                </li>
+            </ul>
+
+            <hr class="my-4">
+            <p>First SignUp and after that You can Authenticate </p>
+            <p class="lead">
+                <a class="btn btn-dark btn-lg" href="#" onclick="sub()">Sign-Up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------------------------------------------------- -->
+    <div id="sign">
+        <div class="">
+            <div class="cent">
+                <h1>Sign-In</h1>
+            </div>
+            <div class="container col-4">
+                <label for="name" class="form-label">Name</label>
+
+                <input type="text" class="form-control" id="nameValue" onkeyup="inpt()" required>
+                <div id="valid-name">
+                    Looks good!
+                </div>
+                <div id="inValid-name">
+                    Invalid Name
+                </div>
+
+            </div>
+            <div class="container col-4">
+                <label for="email" class="form-label">E-mail</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text">@</span>
+                    <input type="text" class="form-control" id="email"  onkeyup="inpt()" required>
+                </div>
+                <div id="valid-feedback">
+                    Looks good!
+                </div>
+                <div id="inValid-feedback">
+                    Please use a valid email.
+                </div>
+            </div>
+            <div class="container col-4">
+                <label for="email" class="form-label">Password</label>
+                <div class="input-group input-group-lg ">
+
+                    <input type="password" placeholder="Create Password" id="password" onkeyup="inptPassword()"
+                        class="form-control">
+                </div>
+                <div class="progress-bar" id="progressBar">
+                </div>
+                <div id="strength" class="cent m-1 ">
+                    <p></p>
+                </div>
+                <div class="cent m-2">
+                    <div id="passwordSaved">
+                        Password Saved Successfully
+                    </div>
+                    <div id="passwordNotSaved">
+                        Password Not Saved
+                    </div>
+                </div>
+                <div class="cent">
+                    <button type="button" class="btn btn-dark " onclick="signUp()">Sign-Up</button>
+                </div>
+                <div id="access" class="cent m-2">
+                    <a href="#log" onclick="logg()">Log-In</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <!-- ----------------------------------------------------------------------------------------------------------- -->
+    <div class='' id="log">
+        <div class="cent">
+            <h1>Log-In</h1>
+        </div>
+        <div class="container col-4">
+            <label for="email" class="form-label">E-mail</label>
+            <div class="input-group input-group-lg ">
+                <input type="email" placeholder="abc@gmail.com" id='email3' class="form-control">
+            </div>
+            <label for="email" class="form-label">Password</label>
+            <div class="input-group input-group-lg ">
+                <input type="password" placeholder="Password" id='passwordd' onclick="rem()" class="form-control"
+                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            </div>
+            <div class="cent">
+                <div>
+                    <p id='enter'>
+                        Please Enter A Email or Password
+                    </p>
+                </div>
+                <button type="button" class="btn btn-dark m-2" onclick="logIn()">Log-In</button>
+            </div>
+        </div>
+        <div class="cent">
+            <div id="granted">
+                <p> Login Access Granted</p>
+            </div>
+            <div id="denied">
+                <p>Email and Password InCorrect Login Access Denied</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
