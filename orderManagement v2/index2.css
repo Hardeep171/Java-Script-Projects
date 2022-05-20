@@ -1,0 +1,60 @@
+.main-heading{
+    margin-top: 10px ;
+    text-align: center;
+}
+.orderIdInput{
+    width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+.btn-outer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.order-block {
+    text-align: center;
+    width: 100%;
+    height: 240px;
+    padding: 5px;
+}
+/*  
+<div class="container">
+        <h1>Order Status Management</h1>
+        <input type="text" placeholder="Please enter Order ID" id="order-id-input">
+        <button onclick="executeOrder(()=>addDoneClass(9))">Execute</button>
+        <h2 id="order-id-info"></h2>
+        <div class="status-block" id="order-placed">
+            Order placed
+        </div>
+        <div class="status-block" id="chef-received">
+            Chef received the order and started preparing
+        </div>
+        <div class="status-block" id="'pizza-sauce">
+            Pizza Sauce added
+        </div>
+        <div class="status-block" id="first-cheeze">
+            First layer of cheeze added
+        </div>
+        <div class="status-block" id="toppings-added">
+            Toppings added
+        </div>
+        <div class="status-block" id="second-cheeze">
+            Second layer of cheeze added
+        </div>
+        <div class="status-block" id="pizza-baked">
+            Pizza baked!
+        </div>
+        <div class="status-block" id="oregano-added">
+            Oregano added and packed
+        </div>
+        <div class="status-block" id="package-counter">
+            Package received at counter
+        </div>
+        <div class="status-block" id="package-handover">
+            The order is ready and handed over to the Zomato guy!
+        </div>
+    </div>
+*/
