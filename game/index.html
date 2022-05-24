@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Game</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="game">
+        <span style="background-color: white;">
+            Guess Game
+        </span>
+      
+    </div>
+    <div class="container">
+        <div class="contain">
+            <label class="label1">
+                <h3>Guess Number Between 1 To 100</h3>
+            </label>
+            <div class="input">
+                <div class="inpt">
+                    <input type="number" class="inputText" id='inputTxt' onclick="valDisplay()" placeholder="Enter A number">
+                </div>
+                <div id="val">
+                    Please enter value first
+                </div>
+                <div class="btn">
+                    <button onclick="check()" id ='bttn' >Check</button>
+                </div>
+                <div class="number">
+                    <span id="smaller" >
+                        Number is Smaller!
+                    </span>
+                    <span id="greater" >
+                        Number is Greater!
+                    </span>
+                </div>
+                <div id="arr">
+
+                </div>
+                <div id="txt">
+                    Guess remaining : 10
+                </div>
+                <div class="writeWrong">
+                    <div id="write">
+                        You Guess Write! You WON
+                    </div>
+                    <div id="wrong">
+                        Your All Guesses Wrong! You Loose
+                    </div>
+                    <div id="reload">
+                        Reload the page to start the new Game
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

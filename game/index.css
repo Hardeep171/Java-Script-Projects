@@ -1,0 +1,114 @@
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game{
+   
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 3em;
+    font-weight: 500;
+    font-family: monospace;
+    margin: 20px;
+    margin-top: 60px;
+    color: black;
+}
+h3{
+    color: white;
+    font-size: 1.5em;
+    width: 100%;
+   text-align: center;
+}
+.label1{
+    margin-top: 100px ;
+}
+.input,input,.game{
+    text-align: center;
+}
+input{
+    border-radius: 50px;
+    padding: 5px;
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-top: 30px;
+}
+.contain{
+    border: 3px solid  black;
+    border-radius: 30px;
+    background: black;
+    color: white;
+}
+.input{
+    height: 420px;
+    width: 550px;
+    font-family: sans-serif;
+    background-image: url('assets/images/pexels-gabriel-peter-696644.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: #fff;
+}
+.btn{
+    margin: 10px;
+}
+button{
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    font-size:1.2em ;
+    font-family: sans-serif;
+    color: #fff;
+    background: #212529;
+    border-radius: 10px;
+}
+#txt{
+    font-size:1.5em ;
+    font-weight: bolder;
+    font-family: sans-serif;
+    margin: 20px;
+    color: #fff;
+}
+.number,#val{
+    color: red;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 10px;
+}
+#val{
+    display: none;
+}
+#greater{
+    display: none;
+    background-color: lightgreen;
+}
+#smaller{
+    display: none;
+    background-color: lightgreen;
+}
+.writeWrong{
+    color: green;
+    padding: 20px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+#write{
+display: none;
+background-color: lightcoral;
+}
+#reload{
+    color: green;
+    display: none;
+    font-size: 1em;
+background-color: lightcoral;
+}
+#wrong{
+display: none;
+color: red;
+background-color: lightcoral;
+}
+#arr{
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #212529;
+    background-color: lightblue;
+}
