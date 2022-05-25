@@ -26,7 +26,7 @@ const ticTacToe = (colIndex) => {
         columns[colIndex].innerText = turn === 1 ? 'X' : 'O'
         let x = checkWinningStatus()
         if(x != 'noWinner'){
-            x === 'X' ? turnn.innerText = `Player ${x}'s won!` : turnn.innerText = `Player ${x}'s won!`
+            x === 'X' ? turnn.innerText = `Player ${x} won!` : turnn.innerText = `Player ${x} won!`
            // turnn.innerText = `Player ${x} won!`
             turnn.style.backgroundColor = 'rgba(33, 150, 240, 1)'
             return
