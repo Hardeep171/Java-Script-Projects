@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Poppins:wght@300&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&family=Varela+Round&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="game">
+        <h1>Tic Tac Toe</h1>
+    </div>
+    <div class="inputNames" id="players">
+        <div class="ply1">
+            <label for="">Player 1: 'X'</label>
+            <!-- <input type="text" id="player1" placeholder="Enter Player 1 Name" > -->
+        </div>
+        <div class="ply2">
+            <label  for=""  >Player 2 : 'O'</label>
+            <!-- <label for="">Player 2:</label> -->
+            <!-- <input type="text" id="player2" placeholder="Enter Player 2 Name" > -->
+        </div>
+        <div class="button">
+            <button onclick="start()" id="btn">START GAME</button>
+        </div>
+    </div>
+    <div id="gameDiv">
+        <div>
+            <h2 id="h2">Player 1's turn</h2>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col" onclick="ticTacToe(0)">
+                </div>
+                <div class="col" onclick="ticTacToe(1)">
+                </div>
+                <div class="col" onclick="ticTacToe(2)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" onclick="ticTacToe(3)">
+                </div>
+                <div class="col" onclick="ticTacToe(4)">
+                </div>
+                <div class="col" onclick="ticTacToe(5)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" onclick="ticTacToe(6)">
+                </div>
+                <div class="col" onclick="ticTacToe(7)">
+                </div>
+                <div class="col" onclick="ticTacToe(8)">
+                </div>
+            </div>
+        </div>
+        <div id="button2">
+            <button id="btn2" onclick="reStart()">Re-Start Game</button>
+        </div>
+    </div>
+    <script src='index.js'></script>
+</body>
+
+</html>
