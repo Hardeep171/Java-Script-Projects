@@ -22,7 +22,6 @@ const winCondition = [
 // column index start from zero
 let flag = false
 const ticTacToe = (colIndex) => {
-
     if(!flag && !columns[colIndex].innerText){
         columns[colIndex].innerText = turn === 1 ? 'X' : 'O'
         let x = checkWinningStatus()
@@ -39,7 +38,6 @@ const ticTacToe = (colIndex) => {
 }
 
 const checkWinningStatus = () => {
-
     for (let i = 0; i < winCondition.length; i++) {
         let condition = winCondition[i]
         let value = columns[condition[0]].innerText
