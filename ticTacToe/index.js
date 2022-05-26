@@ -20,12 +20,14 @@ const winCondition = [
     [2, 4, 6],
 ]
 // column index start from zero
+let flag = false
 const ticTacToe = (colIndex) => {
 
-    if(!columns[colIndex].innerText){
+    if(!flag && !columns[colIndex].innerText){
         columns[colIndex].innerText = turn === 1 ? 'X' : 'O'
         let x = checkWinningStatus()
         if(x != 'noWinner'){
+            flag = true
             x === 'X' ? turnn.innerText = `Player ${x} won!` : turnn.innerText = `Player ${x} won!`
            // turnn.innerText = `Player ${x} won!`
             turnn.style.backgroundColor = 'rgba(33, 150, 240, 1)'
