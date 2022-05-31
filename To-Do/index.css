@@ -1,0 +1,47 @@
+.container{
+    padding: 0;
+    margin: 20px auto;
+}
+
+.outer{
+    height: 100vh;
+}
+
+.outer .col-md-4{
+    padding: 0;
+}
+
+.todo-section{
+    border: 2px solid black;
+    margin: 10px;
+    height: 100%;
+}
+
+.todo-section .display-4{
+    text-align: center;
+    padding: 5px 0;
+    background-color: bisque;
+}
+
+.main-btn-outer {
+    text-align: center;
+    width: 100%;
+}
+/* .main-btn-oter .btn-lg{
+    background-color: bisque;
+    color: black;
+    border-color: black;
+}
+.main-btn-oter .btn-lg:hover{
+    background-color: bisque;
+    color: black;
+    border-color: bisque;
+} */
+
+.span1 {
+   float: left;
+   
+}
+.span2 {
+   float: right;
+}
