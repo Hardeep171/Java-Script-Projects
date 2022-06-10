@@ -29,6 +29,13 @@ body{
     margin: 50px auto;
     text-align: center;
 }
+.buy-btn {
+    flex: 1;
+    margin:  0 0 0 5px;
+}
+.add-to-cart-btn {
+    flex: 1;
+}
 .card {
     margin-bottom: 20px;
     width: 100%;

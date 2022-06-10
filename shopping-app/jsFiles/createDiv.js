@@ -43,8 +43,8 @@ function createProductDiv(element) {
     cardTittleH3.innerText = `$${element.price}`
     cardTextP.innerText = `${element.description.slice(0,50)}...`
     ratingNumber.innerText = `(${element.rating.count})`
-    btnA1.innerText = "Add To Cart"
-    btnA2.innerText = "Buy Now"
+    btnA1.innerHTML = '<i class="fa fa-shopping-cart" aria-hidden="true"></i>'
+    btnA2.innerText = "Buy-Now"
 
     colDiv.id  = `product-${element.id}`
     colDiv.classList = "col-md-3"
@@ -93,8 +93,14 @@ function createProductDiv(element) {
         rating5.classList = "fa fa-star checked"
     }
     outerBtnDiv.classList = "outer-btn"
-    btnA1.classList = "btn btn-primary"
-    btnA2.classList = "btn btn-primary"
+    btnA1.classList = "btn btn-primary add-to-cart-btn"
+    btnA2.classList = "btn btn-primary buy-btn"
     
     containerClass.appendChild(colDiv)
+
+    let productId = element.id
+    btnA1.addEventListener('click' , () => {
+        addToCart(productId)
+        btnA1.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>'
+    })
 }

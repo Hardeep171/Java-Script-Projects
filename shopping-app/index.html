@@ -43,6 +43,10 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="#">Contact-Us</a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span
+                            class="badge badge-light" id="cart-items-length">0</span></a>
+                </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item ">
@@ -64,23 +68,24 @@
         <hr class="my-4">
         <p>Please explore and choose from wide-range of products</p>
         <img src="Assets/explore-with-love.gif" alt="" class="jumbotron-img">
-        <a class="btn btn-primary btn-lg" href="#products" > Explore</a>
+        <a class="btn btn-primary btn-lg" href="#products"> Explore</a>
     </div>
 
     <!-- ------------------------------------------PRODUCTS------------------------------------------ -->
-    <div class="container" >
+    <div class="container">
         <div id='products-spinner'>
-        <div class="spinner-border text-primary" role="status">
+            <div class="spinner-border text-primary" role="status">
+            </div>
         </div>
-    </div>
 
         <div class="row" id="products">
 
         </div>
     </div>
+    <script src="jsFiles/addToCart.js"></script>
     <script src="jsFiles/createDiv.js"></script>
     <script src="jsFiles/index.js"></script>
-    
+
 </body>
 
 </html>

@@ -9,18 +9,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+
 let spinner = document.getElementById('products-spinner')
 const fetchProductDetails = async () => { 
     try{
        const res = await fetch('https://fakestoreapi.com/products')
        const data = await res.json()
+       
        data.forEach(element => createProductDiv(element))
-       spinner.style.display = 'none'
+        spinner.style.display = 'none'
     }
     catch(err){
         console.log(err)
     }
 }
+
 // const fetchProductDetails =  () => {
 //     resolve  =  fetch('https://fakestoreapi.com/products')
 //     .then((response) => response.json())
