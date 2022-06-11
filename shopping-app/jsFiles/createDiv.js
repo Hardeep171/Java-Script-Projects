@@ -93,14 +93,16 @@ function createProductDiv(element) {
         rating5.classList = "fa fa-star checked"
     }
     outerBtnDiv.classList = "outer-btn"
-    btnA1.classList = "btn btn-primary add-to-cart-btn"
-    btnA2.classList = "btn btn-primary buy-btn"
+    btnA1.classList = "btn btn-primary add-to-cart-btn "
+    btnA2.classList = "btn btn-primary buy-btn "
+    btnA1.id = 'btn1'
+    btnA2.id = 'btn2'
     
     containerClass.appendChild(colDiv)
 
     let productId = element.id
     btnA1.addEventListener('click' , () => {
-        addToCart(productId)
+        addToCart(productId,element)
         btnA1.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>'
     })
 }

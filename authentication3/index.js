@@ -201,15 +201,7 @@ function logIn() {
 }
 
 function changeActiveNavlink(Active) {
-    if (Active === 'HOME') {
-        home.add('activee')
-        signup.remove('activee')
-        login.remove('activee')
-        document.getElementById('sign').style.display = 'none'
-        document.getElementById('log').style.display = 'none'
-        document.getElementById('instructions').style.display = 'none'
-    }
-    else if (Active === 'SIGN_UP') {
+    if (Active === 'SIGN_UP') {
         signup.add('activee')
         document.getElementById('sign').style.display = 'block'
         document.getElementById('log').style.display = 'none'

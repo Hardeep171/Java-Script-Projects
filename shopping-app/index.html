@@ -16,14 +16,15 @@
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cartItems.css">
 </head>
 
 <body onload="fetchProductDetails()">
 
     <!-- ------------------------------------------NAVBAR------------------------------------------ -->
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#home">
             <img class="navImg" src="https://cdn.pixabay.com/photo/2015/12/23/01/14/edit-1105049__480.png" alt="">
             Your Shopping App
         </a>
@@ -32,36 +33,41 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#home">Home</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="#products">Products</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">About-Us</a>
+                    <a class="nav-link" href="#about-us">About-Us</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">Contact-Us</a>
+                    <a class="nav-link" href='#contact-Us'>Contact-Us</a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> <span
-                            class="badge badge-light" id="cart-items-length">0</span></a>
+
+                <li class="nav-item " data-toggle="modal" data-target="#cartModal">
+                    <a class="nav-link"><i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        <span class="badge badge-light" id="cart-items-length">0</span>
+                    </a>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">Log-In</a>
+
+                    <a class="nav-link" id='loginbtn' href="#log">Log-In</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">Sign-Up</a>
+
+                    <a class="nav-link" id='signbtn' href="#sign">Sign-Up</a>
                 </li>
+
             </ul>
 
         </div>
     </nav>
 
-    <!-- ------------------------------------------JUMBOTRON------------------------------------------ -->
-    <div class="jumbotron">
+    <!-- ------------------------------------------JUMBOTRON-------------------------------------------->
+    <div class="jumbotron" id="home">
         <h1 class="display-4">WELCOME TO YOUR SHOPPING APP</h1>
         <p class="lead">The one stop destination for all your shopping needs! Be it from fashion to electronics, you
             will get it all here.</p>
@@ -69,8 +75,11 @@
         <p>Please explore and choose from wide-range of products</p>
         <img src="Assets/explore-with-love.gif" alt="" class="jumbotron-img">
         <a class="btn btn-primary btn-lg" href="#products"> Explore</a>
-    </div>
+        <!-- <hr class="my-4">
+        <p>Please Log-in To buy</p>
+        <a class="btn btn-primary btn-lg" href='#log'onclick="changeActiveNavlink('LOGIN')"> LogIn</a> -->
 
+    </div>
     <!-- ------------------------------------------PRODUCTS------------------------------------------ -->
     <div class="container">
         <div id='products-spinner'>
@@ -78,10 +87,76 @@
             </div>
         </div>
 
-        <div class="row" id="products">
+        <div class="row " id="products">
+
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="about-uss" id='about-us'>
+            <h1 class="display-3 cent" style="text-decoration: underline;">About-Us</h1>
+            <h1 class='disolay-3 cent'>-Our Goal-</h1>
+            <p class=" cent">To provide you most accountable shop store.</p>
+
+            <div class="about">
+                <h2 class="display-3">About</h2>
+
+                <p class="display-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita eos labore vel
+                    fuga
+                    ad nihil asperiores? At exercitationem porro ea est culpa earum modi cum harum eaque ab deserunt, a
+                    placeat consequuntur ratione nobis repellat sunt cupiditate aut provident! Possimus voluptatum
+                    voluptas
+                    ratione et exercitationem odit provident ipsa optio dolore.</p>
+                <p class="display-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita eos labore vel
+                    fuga
+                    ad nihil asperiores? At exercitationem porro ea est culpa earum modi cum harum eaque ab deserunt, a
+                    placeat consequuntur ratione nobis repellat sunt cupiditate aut provident! Possimus voluptatum
+                    voluptas
+                    ratione et exercitationem odit provident ipsa optio dolore.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="footer cent contact-uss" id='contact-Us'>
+            <h1 class="display-4 " style="text-decoration: underline;">Contact-Us</h1>
+
+            <div class="contact">
+
+                <h3>Email: yourshop01@gmail.com</h3>
+                <h3>Phone: +91 1122334411</h3>
+                <h3></h3>
+            </div>
 
         </div>
     </div>
+    <!-- addtocart------------------------------------------------------------------------------------------ -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cart Items</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="cart-items-body">
+                    <img src="Assets/empty-cart-gif.gif" alt="cart-empty" id="cart-empty-img">
+                </div>
+                <div class="container">
+                    <div class="row " id="productss">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Continue to Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------------------------------------------------------------------------------------- -->
+
     <script src="jsFiles/addToCart.js"></script>
     <script src="jsFiles/createDiv.js"></script>
     <script src="jsFiles/index.js"></script>

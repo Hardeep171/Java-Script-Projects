@@ -1,6 +1,4 @@
-body{
-    background: rgb(238,248,249);
-}
+
 .navbar {
     background-color: rgb(238,248,249);
     position: sticky;
@@ -13,12 +11,12 @@ body{
 }
 .jumbotron {
     text-align: center;
-    background-color: linear-gradient(90deg, rgba(135,207,250,1) 0%, rgba(192,199,204,1) 0%);
+    background: #eeeee4;
 }
 .jumbotron .jumbotron-img {
     height: 150px;
     margin: 10px auto;
-    border: 10px solid rgb(238,248,249);;
+    border: 10px solid rgb(238,248,249);
     border-radius: 100%;
     display: block;
 }
@@ -62,6 +60,9 @@ body{
     margin-bottom: 2px;
    
 }
+#products {
+    margin-bottom: 20px;
+}
 .card-body {
     width: 100%;
 }
@@ -77,3 +78,32 @@ body{
     color: orange;
     margin-bottom: 10px;
   }
+.about-uss ,.contact-uss{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color:#cce7e8;
+}
+
+.contact-uss {
+    margin-bottom: 30px;
+}
+.about-uss > p {
+    font-weight: 550;
+}
+.cent{
+    text-align: center;
+  }
+
+  .about {
+    padding: 0px 50px 0px;
+  }
+  .about p {
+    font-size: xx-large;
+  }
+
+#cart-empty-img {
+    width: 300px;
+}
+#cart-items-body {
+margin: auto;
+}

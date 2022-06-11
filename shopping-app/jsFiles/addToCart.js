@@ -1,6 +1,92 @@
- let cartItems = []
- let cartItemsLength = document.getElementById('cart-items-length')
- const addToCart = (id) => {
+let cartItems = []
+let cartItemsLength = document.getElementById('cart-items-length')
+let containerClasss = document.getElementById('productss')
+let modalImg = document.getElementById('cart-items-body')
+const addToCart = (id, element) => {
     cartItems.push(id)
+    modalImg.style.display = 'none'
     cartItemsLength.innerText = cartItems.length
+    let colDiv = document.createElement('div')
+    let cardDiv = document.createElement('div')
+    let cardDivImg = document.createElement('img')
+    let cardBodyDiv = document.createElement('div')
+    let productsHeaderDiv = document.createElement('div')
+    let cardTittleH5 = document.createElement('h6')
+    let cardTittleH3 = document.createElement('h5')
+    let cardTextP = document.createElement('p')
+    let rating1 = document.createElement('span')
+    let rating2 = document.createElement('span')
+    let rating3 = document.createElement('span')
+    let rating4 = document.createElement('span')
+    let rating5 = document.createElement('span')
+    let ratingNumber = document.createElement('span')
+
+    colDiv.appendChild(cardDiv)
+    cardDiv.appendChild(cardDivImg)
+    cardDiv.appendChild(cardBodyDiv)
+    cardBodyDiv.appendChild(productsHeaderDiv)
+    productsHeaderDiv.appendChild(cardTittleH5)
+    productsHeaderDiv.appendChild(cardTittleH3)
+    cardBodyDiv.appendChild(cardTextP)
+    cardBodyDiv.appendChild(rating1)
+    cardBodyDiv.appendChild(rating2)
+    cardBodyDiv.appendChild(rating3)
+    cardBodyDiv.appendChild(rating4)
+    cardBodyDiv.appendChild(rating5)
+    cardBodyDiv.appendChild(ratingNumber)
+
+    cardDivImg.src = element.image
+    cardTittleH5.innerText = `${element.title.slice(0, 20)}...`
+    cardTittleH3.innerText = `$${element.price}`
+    cardTextP.innerText = `${element.description.slice(0, 50)}...`
+    ratingNumber.innerText = `(${element.rating.count})`
+
+    colDiv.id = `product-${element.id+10}`
+
+    colDiv.classList = "col-md-6"
+    cardDiv.classList = "card"
+    cardDivImg.classList = "card-img-top"
+    cardBodyDiv.classList = "card-body"
+    productsHeaderDiv.classList = "products-header"
+    cardTittleH5.classList = "card-titlle"
+    cardTittleH3.classList = "card-tittle product-price"
+    cardTextP.classList = "card-text"
+
+    let ratingCount = Math.ceil(element.rating.rate)
+    if(ratingCount == 1) {
+        rating1.classList =  "fa fa-star checked"
+        rating2.classList = "fa fa-star "
+        rating3.classList = "fa fa-star "
+        rating4.classList = "fa fa-star "
+        rating5.classList = "fa fa-star "
+    }else if(ratingCount == 2){
+        rating1.classList =  "fa fa-star checked"
+        rating2.classList = "fa fa-star checked"
+        rating3.classList = "fa fa-star "
+        rating4.classList = "fa fa-star "
+        rating5.classList = "fa fa-star "
+    }
+    else if(ratingCount == 3){
+        rating1.classList =  "fa fa-star checked"
+        rating2.classList = "fa fa-star checked"
+        rating3.classList = "fa fa-star checked"
+        rating5.classList = "fa fa-star "
+        rating4.classList = "fa fa-star "
+    }
+    else if(ratingCount == 4){
+        rating1.classList =  "fa fa-star checked"
+        rating2.classList = "fa fa-star checked"
+        rating3.classList = "fa fa-star checked"
+        rating4.classList = "fa fa-star checked"
+        rating5.classList = "fa fa-star "
+    }
+    else if(ratingCount == 5){
+        rating1.classList =  "fa fa-star checked"
+        rating2.classList = "fa fa-star checked"
+        rating3.classList = "fa fa-star checked"
+        rating4.classList = "fa fa-star checked"
+        rating5.classList = "fa fa-star checked"
+    }
+
+    containerClasss.appendChild(colDiv)
 }
