@@ -20,6 +20,9 @@
     border-radius: 100%;
     display: block;
 }
+.nav-item:hover {
+    cursor: pointer;
+}
 #products{
     padding-top: 60px ;
 }
