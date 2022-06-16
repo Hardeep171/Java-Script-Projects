@@ -93,6 +93,7 @@ function createProductDiv(element) {
         rating5.classList = "fa fa-star checked"
     }
     outerBtnDiv.classList = "outer-btn"
+    
     btnA1.classList = "btn btn-primary add-to-cart-btn "
     btnA2.classList = "btn btn-primary buy-btn "
     btnA1.id = 'btn1'
@@ -104,5 +105,6 @@ function createProductDiv(element) {
     btnA1.addEventListener('click' , () => {
         addToCart(productId,element)
         btnA1.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i>'
+        btnA1.classList.add('disabled');
     })
 }

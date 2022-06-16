@@ -9,6 +9,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+let notificationAlert = document.getElementById('notification-alert');
+const hideAlert = () => {
+	notificationAlert.style.display = 'none';
+} 
 
 let spinner = document.getElementById('products-spinner')
 const fetchProductDetails = async () => { 

@@ -14,6 +14,10 @@ const addToCart = (id, element) => {
     let cardTittleH5 = document.createElement('h6')
     let cardTittleH3 = document.createElement('h5')
     let cardTextP = document.createElement('p')
+
+    let outerBtnDiv = document.createElement('div')
+    let btnA1 = document.createElement('a')
+
     let rating1 = document.createElement('span')
     let rating2 = document.createElement('span')
     let rating3 = document.createElement('span')
@@ -34,15 +38,19 @@ const addToCart = (id, element) => {
     cardBodyDiv.appendChild(rating4)
     cardBodyDiv.appendChild(rating5)
     cardBodyDiv.appendChild(ratingNumber)
+    cardBodyDiv.appendChild(outerBtnDiv)
+    outerBtnDiv.appendChild(btnA1)
+    
 
     cardDivImg.src = element.image
     cardTittleH5.innerText = `${element.title.slice(0, 20)}...`
     cardTittleH3.innerText = `$${element.price}`
     cardTextP.innerText = `${element.description.slice(0, 50)}...`
     ratingNumber.innerText = `(${element.rating.count})`
+    btnA1.innerText = "Remove"
+    colDiv.id = `product-${element.id}`
 
-    colDiv.id = `product-${element.id+10}`
-
+    btnA1.classList = "btn btn-danger  "
     colDiv.classList = "col-md-6"
     cardDiv.classList = "card"
     cardDivImg.classList = "card-img-top"
@@ -89,4 +97,26 @@ const addToCart = (id, element) => {
     }
 
     containerClasss.appendChild(colDiv)
+
+    btnA1.addEventListener('click', function () {
+		// Remove productDiv from cart
+		containerClasss.removeChild(colDiv)
+
+		// Update cart items count
+		cartItems = cartItems.filter(cartItemId => cartItemId != element.id)
+		cartItemsLength.innerText = cartItems.length
+
+        
+
+		// Show the empty cart image when cart items count is 0
+		if(cartItems.length === 0)
+        modalImg.style.display  = 'inline-block'
+		
+		// Change the selected icon back to 'add to cart' icon for all products removed from the cart
+		let productColDiv = document.getElementById(`product-${element.id}`)
+		let requiredAddToCartButton = productColDiv.getElementsByClassName('add-to-cart-btn')[0]
+		requiredAddToCartButton.innerHTML = '<i class="fa fa-cart-plus" aria-hidden="true"></i>'
+		requiredAddToCartButton.classList.remove('disabled')
+	})
+    
 }

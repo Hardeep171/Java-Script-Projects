@@ -51,18 +51,26 @@
                     </a>
                 </li>
             </ul>
-            <ul class="navbar-nav" id="login-nav">
-                <li class="nav-item ">
-                    <a class="nav-link" data-toggle="modal" data-target="#loginModal">Log-In</a>
-                </li>
+            <ul class="navbar-nav">
                 <li class="nav-item " id="sign-up-nav">
                     <a class="nav-link" data-toggle="modal" data-target="#signUpModal">Sign-Up</a>
+                </li>
+                <li class="nav-item " id="login-nav">
+                    <a class="nav-link" data-toggle="modal" data-target="#loginModal">Log-In</a>
                 </li>
             </ul>
 
         </div>
     </nav>
+    
+    <!-- ------------------------------------------ ALERT ------------------------------------------ -->
 
+    <div class="alert alert-success alert-dismissible fade show" id="notification-alert" role="alert">
+        <span id='notification-text'></span>
+        <button type="button" class="close" onclick="hideAlert()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <!-- ------------------------------------------JUMBOTRON-------------------------------------------->
     <div class="jumbotron" id="home">
         <h1 class="display-4">WELCOME TO YOUR SHOPPING APP</h1>
@@ -72,10 +80,6 @@
         <p>Please explore and choose from wide-range of products</p>
         <img src="Assets/explore-with-love.gif" alt="" class="jumbotron-img">
         <a class="btn btn-primary btn-lg" href="#products"> Explore</a>
-        <!-- <hr class="my-4">
-        <p>Please Log-in To buy</p>
-        <a class="btn btn-primary btn-lg" href='#log'onclick="changeActiveNavlink('LOGIN')"> LogIn</a> -->
-
     </div>
     <!-- ------------------------------------------PRODUCTS------------------------------------------ -->
     <div class="container">
@@ -153,104 +157,141 @@
     </div>
     <!-- signupcart------------------------------------------------------------------------------------------ -->
     <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body" id="cart-items-body">
-					<form novalidate id="signUpForm">
-						<div class="form-row">
-							<div class="col-md-6 mb-3 form-fields">
-								<label for="validationCustom01">First name</label>
-								<input type="text" class="form-control" id="validationCustom01" placeholder="First name" required onkeyup="validate()">
-								<div class="valid-feedback">
-									Looks good!
-								</div>
-								<div class="invalid-feedback">
-									Please enter a valid first name.
-								</div>
-							</div>
-							<div class="col-md-6 mb-3 form-fields">
-								<label for="validationCustom02">Last name</label>
-								<input type="text" class="form-control" id="validationCustom02" placeholder="Last name" required onkeyup="validate()">
-								<div class="valid-feedback">
-									Looks good!
-								</div>
-								<div class="invalid-feedback">
-									Please enter a valid last name.
-								</div>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="col-md-12 mb-3 form-fields">
-								<label for="validationCustomUsername">Email</label>
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text" id="inputGroupPrepend">@</span>
-									</div>
-									<input type="text" class="form-control" id="validationCustomUsername" placeholder="Email" aria-describedby="inputGroupPrepend" required onkeyup="validate()">
-									<div class="valid-feedback">
-										Looks good!
-									</div>
-									<div class="invalid-feedback">
-										Please enter a valid email address.
-									</div>
-								</div>
-							</div>
-							<div class="col-md-12 mb-3 form-fields">
-								<label for="validationCustom03">Password</label>
-								<input type="password" class="form-control" id="validationCustom03" placeholder="Password" required onkeyup="validate()">
-								<div class="valid-feedback">
-									Looks good!
-								</div>
-								<div class="invalid-feedback">
-									Please enter a valid password. (Min. 8 characters)
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary" onclick="signUp()">Sign Up</button>
-				</div>
-			</div>
-		</div>
-	</div>
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="cart-items-body">
+                    <form novalidate id="signUpForm">
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3 form-fields">
+                                <label for="validationCustom01">First name</label>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="First name"
+                                    required onkeyup="validate()">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a valid first name.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3 form-fields">
+                                <label for="validationCustom02">Last name</label>
+                                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name"
+                                    required onkeyup="validate()">
+                                <div class="valid-feedback" >
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback" >
+                                    Please enter a valid last name.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3 form-fields">
+                                <label for="validationCustomUsername">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="validationCustomUsername"
+                                        placeholder="Email" aria-describedby="inputGroupPrepend" required
+                                        onkeyup="validate()">
+                                    <div class="valid-feedback" >
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback" >
+                                        Please enter a valid email address.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3 form-fields">
+                                <label for="validationCustom03">Password</label>
+                                <input type="password" class="form-control" id="validationCustom03"
+                                    placeholder="Password" required onkeyup="validate()">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a valid password. (Min. 8 characters)
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="signUp()">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!----------------------------------- Login Modal ----------------------------------->
-	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Login</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body" id="cart-items-body">
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Login</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!----------------------------------- Login Modal ----------------------------------->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="cart-items-body">
+                    <form novalidate id="loginForm">
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3 form-fields">
+                                <label for="validationCustomUsername">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="login-email"
+                                        placeholder="Email" aria-describedby="inputGroupPrepend" required
+                                        onkeyup="loginValidate()">
+                                    <div class="valid-feedback" id="valid-feedback1">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback" id="invalid-feedback1">
+                                        Please enter a valid email address.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3 form-fields">
+                                <label for="validationCustom03">Password</label>
+                                <input type="password" class="form-control" id="login-password"
+                                    placeholder="Password" required onkeyup="loginValidate()">
+                                <div class="valid-feedback" id="valid-feedback2">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback" id="invalid-feedback2">
+                                    Please enter a valid password. (Min. 8 characters)
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ------------------------------------------------------------------------------------------------------- -->
 
     <script src="jsFiles/addToCart.js"></script>
     <script src="jsFiles/createDiv.js"></script>
     <script src="jsFiles/index.js"></script>
     <script src="jsFiles/validate.js"></script>
-	<script src="jsFiles/signUp.js"></script>
+    <script src="jsFiles/signUp.js"></script>
+    <script src="jsFiles/login.js"></script>
 
 </body>
 
