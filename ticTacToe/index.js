@@ -23,20 +23,51 @@ const winCondition = [
 let flag = false
 const ticTacToe = (colIndex) => {
     if(!flag && !columns[colIndex].innerText){
+        
         columns[colIndex].innerText = turn === 1 ? 'X' : 'O'
         let x = checkWinningStatus()
+        let drowflag = false;
+
         if(x != 'noWinner'){
             flag = true
             x === 'X' ? turnn.innerText = `Player ${x} won!` : turnn.innerText = `Player ${x} won!`
            // turnn.innerText = `Player ${x} won!`
             turnn.style.backgroundColor = 'rgba(33, 150, 240, 1)'
+            statusFlag = true;
             return
         }
+       if(draw()){
+        drowflag = true;
+        
+       }
+       if(drowflag){
+        
+        turnn.innerText = ` Match Draw ` 
+        turnn.style.backgroundColor = 'rgba(33, 150, 240, 1)'
+        return
+       }
+       else{
         turn = turn === 1 ? 2 : 1
-        turnn.innerText = `Player ${turn}'s turn`  
+        turnn.innerText = `Player ${turn}'s turn` 
+       }
+        
     }
 }
 
+const draw = () => {
+    let drowflag = false
+    for(let i = 0; i < 9; i++){
+        if(columns[i].innerText){
+            drowflag = true;
+        }
+        else{
+            drowflag = false ;
+            break;
+        }
+    }
+    if(drowflag) return true;
+    else return false;
+}
 const checkWinningStatus = () => {
     for (let i = 0; i < winCondition.length; i++) {
         let condition = winCondition[i]
