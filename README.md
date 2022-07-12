@@ -1,2 +1,2 @@
 # Assignments-of-js
-This repo contains my js projects 
+This repo contains all my js projects 
